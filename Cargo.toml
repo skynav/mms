@@ -1,0 +1,28 @@
+[package]
+# essential fields
+name = "mms"
+version = "0.0.0"
+edition = "2021"
+# additional fields (in alphabetic order)
+authors = ["Glenn Adams <glenn@skynav.com>"]
+categories = ["network-programming"]
+description = """
+mms is a library that implements the Manufacturing Message Specification (MMS)
+application protocol as defined by ISO 9506 Second Edition (2003)
+"""
+documentation = "https://github.com/skynav/mms"
+homepage = "https://github.com/skynav/mms"
+keywords = ["mms"]
+license = "Unlicense OR MIT"
+readme = "README.md"
+repository = "https://github.com/skynav/mms"
+
+[lib]
+path = "crates/core/lib.rs"
+
+[workspace]
+members = [
+  "crates/mmpm"
+]
+
+[dependencies]
