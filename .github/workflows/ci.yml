@@ -148,7 +148,10 @@ jobs:
       shell: bash
       run: |
         outdir="$(ci/cargo-out-dir "${{ env.TARGET_DIR }}")"
-        ls "$outdir/_mms.ps1" && file "$outdir/_mms.ps1"
+        for f in _mms.ps1; do
+          # ls "$outdir/$f" && file "$outdir/$f"
+          echo "$outdir/$f"
+        done
 
     - name: Test for existence of build artifacts (Unix)
       if: matrix.os != 'windows-2019'
