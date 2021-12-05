@@ -2,7 +2,7 @@
 # essential fields
 name = "mms-mmpm"
 version = "0.0.1"
-edition = "2021"
+edition = "2018"
 # additional fields (in alphabetic order)
 authors = ["Glenn Adams <glenn@skynav.com>"]
 categories = ["network-programming"]
