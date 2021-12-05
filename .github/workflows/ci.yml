@@ -26,7 +26,7 @@ jobs:
     strategy:
       matrix:
         build:
-        # We test iccp on a pinned version of Rust, along with the moving
+        # We test mms on a pinned version of Rust, along with the moving
         # targets of 'stable' and 'beta' for good measure.
         - pinned
         # - stable
@@ -75,7 +75,7 @@ jobs:
           # docker run --rm -v $PWD/target:/target:Z \
           #   rustembedded/cross:arm-unknown-linux-gnueabihf \
           #   arm-linux-gnueabihf-strip \
-          #   /target/arm-unknown-linux-gnueabihf/debug/iccp
+          #   /target/arm-unknown-linux-gnueabihf/debug/mms
           target: arm-unknown-linux-gnueabihf
         - build: macos
           os: macos-latest
@@ -118,7 +118,7 @@ jobs:
         echo "cargo command is: ${{ env.CARGO }}"
         echo "target flag is: ${{ env.TARGET_FLAGS }}"
         
-    - name: Build iccp and all crates
+    - name: Build mms and all crates
       run: ${{ env.CARGO }} build --verbose --workspace ${{ env.TARGET_FLAGS }}
 
     # This is useful for debugging problems when the expected build artifacts
@@ -144,7 +144,7 @@ jobs:
       shell: bash
       run: |
         outdir="$(ci/cargo-out-dir "${{ env.TARGET_DIR }}")"
-        ls "$outdir/_iccp.ps1" && file "$outdir/_iccp.ps1"
+        ls "$outdir/_mms.ps1" && file "$outdir/_mms.ps1"
 
     - name: Test for existence of build artifacts (Unix)
       if: matrix.os != 'windows-2019'
