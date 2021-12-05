@@ -24,7 +24,7 @@ path = "crates/core/lib.rs"
 
 [workspace]
 members = [
-  "crates/mmpm"
+  "crates/mms-pm"
 ]
 
 [dependencies]
