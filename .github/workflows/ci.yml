@@ -94,10 +94,12 @@ jobs:
       if: matrix.os == 'ubuntu-18.04'
       run: |
         ci/ubuntu-install-packages
+
     - name: Install packages (macOS)
       if: matrix.os == 'macos-latest'
       run: |
         ci/macos-install-packages
+
     - name: Install Rust
       uses: actions-rs/toolchain@v1
       with:
@@ -130,7 +132,9 @@ jobs:
         stderr="$(find "${{ env.TARGET_DIR }}/debug" -name stderr -print0 | xargs -0 ls -t | head -n1)"
         if [ -s "$stderr" ]; then
           echo "===== $stderr ===== "
-          cat "$stderr"
+          if [ -f "$stderr" ]; then
+            cat "$stderr"
+          fi
           echo "====="
         fi
         set -x
