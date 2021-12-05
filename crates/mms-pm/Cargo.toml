@@ -1,0 +1,21 @@
+[package]
+# essential fields
+name = "mms-pm"
+version = "0.0.1"
+edition = "2018"
+# additional fields (in alphabetic order)
+authors = ["Glenn Adams <glenn@skynav.com>"]
+categories = ["network-programming"]
+description = """
+mms-pm is a library that implements an MMS Protocol
+Machine that adheres to ISO 9506 Second Edition (2003);
+not yet ready for download - placeholder for work in progress
+"""
+documentation = "https://github.com/skynav/mms/crates/mms-pm"
+homepage = "https://github.com/skynav/mms/crates/mms-pm"
+keywords = ["mms"]
+license = "MIT OR Unlicense"
+readme = "README.md"
+repository = "https://github.com/skynav/mms/crates/mms-pm"
+
+[dependencies]
