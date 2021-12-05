@@ -1,0 +1,10 @@
+#!/usr/bin/env zsh
+
+emulate zsh -o extended_glob -o no_function_argzero -o no_unset
+
+main() {
+    printf 'OK\n'
+    return 0
+}
+
+main "$@"
