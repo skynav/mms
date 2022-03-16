@@ -1,10 +1,9 @@
-
-use std::fmt::{self,Display};
+use std::fmt::{self, Display};
 use std::io::Cursor;
 
 use crate::cotp::Tpdu;
 use crate::result::Result;
-        
+
 #[derive(Clone, Debug)]
 pub enum Tpkt {
     Tpdu(Tpdu),

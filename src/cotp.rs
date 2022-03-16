@@ -1,4 +1,3 @@
-    
 #[derive(Clone, Debug)]
 pub enum Tpdu {
     ConnectionRequest,
@@ -10,5 +9,5 @@ pub enum Tpdu {
     Acknowledge,
     ExpeditedAcknowledge,
     Reject,
-    Error(String)
+    Error(String),
 }

@@ -1,11 +1,11 @@
-use std::io::{self,Cursor};
+use std::io::{self, Cursor};
 
-use bytes::{Buf,BytesMut};
-use tokio::io::{AsyncReadExt,AsyncWriteExt,BufWriter};
+use bytes::{Buf, BytesMut};
+use tokio::io::{AsyncReadExt, AsyncWriteExt, BufWriter};
 use tokio::net::TcpStream;
 
 use crate::itot::Tpkt;
-use crate::result::{Result,Error,ConnectionError,ProtocolError};
+use crate::result::{ConnectionError, Error, ProtocolError, Result};
 
 #[derive(Debug)]
 pub struct Connection {
@@ -15,10 +15,10 @@ pub struct Connection {
 
 impl Connection {
     pub fn new(socket: TcpStream) -> Connection {
-	Connection {
+        Connection {
             stream: BufWriter::new(socket),
             buffer: BytesMut::with_capacity(64 * 1024),
-	}
+        }
     }
     pub async fn recv_tpkt(&mut self) -> Result<Option<Tpkt>> {
         loop {
@@ -30,9 +30,9 @@ impl Connection {
                     return Ok(None);
                 } else {
                     return Err(Error::Connection(ConnectionError::PeerReset));
-	       }
+                }
             }
-	}
+        }
     }
     fn parse_tpkt(&mut self) -> Result<Option<Tpkt>> {
         let mut buf = Cursor::new(&self.buffer[..]);
@@ -52,7 +52,6 @@ impl Connection {
     pub async fn send_tpkt(&mut self, _tpkt: &Tpkt) -> io::Result<()> {
         self.stream.flush().await
     }
-
 }
 
 pub enum Request {

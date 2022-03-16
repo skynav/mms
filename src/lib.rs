@@ -16,5 +16,4 @@ pub mod result;
 pub mod server;
 mod session;
 
-pub use result::{Result,Error};
-
+pub use result::{Error, Result};
